@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     }
     @IBAction func editChanged(sender: AnyObject) {
         if let euroString = euroTextField.text {
-            let euros = Double(euroString) ?? 0
+            let euros = Double(euroString.stringByReplacingOccurrencesOfString(",", withString: ".")) ?? 0
             let dollars = euros * course
             dollarLabel.text = "$" + String(format: "%.2f", dollars)
         }
